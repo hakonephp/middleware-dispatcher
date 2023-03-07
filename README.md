@@ -14,7 +14,7 @@ We've written a number of small-duty middlewares, but for many use cases they on
 
 ```php
 $dispatcher = Hakone\relay([
-    'intersepters' => [
+    'interceptors' => [
         // ...
     ],
     'middlewares' => [
