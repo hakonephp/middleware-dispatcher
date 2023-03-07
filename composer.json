@@ -15,11 +15,13 @@
         "symplify/easy-coding-standard": "^11.2"
     },
     "autoload": {
+        "files": ["src/functions.php"],
         "psr-4": {
             "Hakone\\": "src"
         }
     },
     "autoload-dev": {
+        "files": ["tests/helpers.php"],
         "psr-4": {
             "Hakone\\": "tests"
         }
