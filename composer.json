@@ -1,0 +1,34 @@
+{
+    "name": "hakone/middleware-dispatcher",
+    "description": "A lightweight PSR-15 middleware dispatcher",
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=7.3",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "nyholm/psr7": "^1.5",
+        "nyholm/psr7-server": "^1.0",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-strict-rules": "^1.5",
+        "phpunit/phpunit": "^9.6",
+        "symplify/easy-coding-standard": "^11.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hakone\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hakone\\": "tests"
+        }
+    },
+    "provide": {
+        "psr/http-server-handler-implementation": "*",
+        "psr/http-server-middleware-dispatcher-implementation": "*"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
