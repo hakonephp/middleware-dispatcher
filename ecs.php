@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
+use PhpCsFixer\Fixer\Phpdoc\PhpdocLineSpanFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
@@ -26,5 +27,9 @@ return function (ECSConfig $ecsConfig): void {
         SetList::NAMESPACES,
         SetList::COMMENTS,
         SetList::PSR_12,
+    ]);
+
+    $ecsConfig->skip([
+        PhpdocLineSpanFixer::class,
     ]);
 };
