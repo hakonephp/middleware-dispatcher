@@ -11,7 +11,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class Dispatcher implements RequestHandlerInterface
 {
-    private $interceptors;
+    private $interceptor;
 
     private $middlewares;
 
@@ -20,13 +20,12 @@ class Dispatcher implements RequestHandlerInterface
     private $decorators;
 
     /**
-     * @param array<MiddlewareInterface> $interceptors
      * @param array<MiddlewareInterface> $middlewares
      * @param array<MiddlewareInterface> $decorators
      */
-    public function __construct(array $interceptors, array $middlewares, RequestHandlerInterface $handler, array $decorators)
+    public function __construct(RequestInterceptor $interceptor, array $middlewares, RequestHandlerInterface $handler, array $decorators)
     {
-        $this->interceptors = $interceptors;
+        $this->interceptor = $interceptor;
         $this->middlewares = $middlewares;
         $this->handler = $handler;
         $this->decorators = $decorators;
@@ -34,7 +33,7 @@ class Dispatcher implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        [$request, $response] = $this->interseptRequest($request);
+        [$request, $response] = $this->interceptor->interceptRequest($request);
         if ($response !== null) {
             return $response;
         }
@@ -43,24 +42,6 @@ class Dispatcher implements RequestHandlerInterface
         $response = $runner->handle($request);
 
         return $this->decorateResponse($response, $runner->getRequest());
-    }
-
-    /**
-     * @return array{ServerRequestInterface, ?ResponseInterface}
-     */
-    public function interseptRequest(ServerRequestInterface $request): array
-    {
-        $handler = new InterceptChecker();
-        foreach ($this->interceptors as $interceptor) {
-            $response = $interceptor->process($request, $handler);
-            if (! $response instanceof NotIntercepted) {
-                return [$request, $response];
-            }
-
-            $request = $handler->getRequest();
-        }
-
-        return [$request, null];
     }
 
     public function decorateResponse(ResponseInterface $response, ServerRequestInterface $request): ResponseInterface

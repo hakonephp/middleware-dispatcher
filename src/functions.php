@@ -15,10 +15,10 @@ use Psr\Http\Server\RequestHandlerInterface;
  *     decorators: array<MiddlewareInterface>
  * } $handlers
  */
-function relay(array $handlers): RequestHandlerInterface
+function relay(array $handlers): Dispatcher
 {
     return new Dispatcher(
-        $handlers['interceptors'],
+        new RequestInterceptor($handlers['interceptors']),
         $handlers['middlewares'],
         $handlers['handler'],
         $handlers['decorators']

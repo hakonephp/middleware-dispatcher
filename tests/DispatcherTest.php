@@ -43,7 +43,7 @@ class DispatcherTest extends TestCase
     {
         $factory = new Psr17Factory();
         $subject = new Dispatcher(
-            $handlers['interceptors'],
+            new RequestInterceptor($handlers['interceptors']),
             $handlers['middlewares'],
             $handlers['handler'],
             $handlers['decorators']
