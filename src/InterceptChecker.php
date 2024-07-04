@@ -10,9 +10,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final class InterceptChecker implements RequestHandlerInterface
 {
-    /**
-     * @var ServerRequestInterface
-     */
+    /** @var ServerRequestInterface */
     private $request;
 
     public function handle(ServerRequestInterface $request): ResponseInterface

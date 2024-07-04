@@ -68,9 +68,7 @@ class DispatcherTest extends TestCase
         ]);
     }
 
-    /**
-     * @return iterable<array{handlers: relay_handlers, expected: array{request: expected_request, response: expected_response}}>
-     */
+    /** @return iterable<array{handlers: relay_handlers, expected: array{request: expected_request, response: expected_response}}> */
     public function paremetersProvider()
     {
         $factory = new Psr17Factory();

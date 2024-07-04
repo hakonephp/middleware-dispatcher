@@ -9,9 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class RawHandlerTest extends TestCase
 {
-    /**
-     * @covers RawHandler
-     */
+    /** @covers RawHandler */
     public function test(): void
     {
         $factory = new Psr17Factory();

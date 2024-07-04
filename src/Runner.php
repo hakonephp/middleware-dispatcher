@@ -18,14 +18,10 @@ class Runner implements RequestHandlerInterface
 
     private $middlewares;
 
-    /**
-     * @var ServerRequestInterface
-     */
+    /** @var ServerRequestInterface */
     private $request;
 
-    /**
-     * @param array<MiddlewareInterface> $middlewares
-     */
+    /** @param array<MiddlewareInterface> $middlewares */
     public function __construct(RequestHandlerInterface $handler, array $middlewares)
     {
         $this->handler = $handler;

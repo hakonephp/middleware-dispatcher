@@ -20,9 +20,7 @@ class TestClosureMiddleware implements MiddlewareInterface
      */
     public $received_request;
 
-    /**
-     * @param Closure(ServerRequestInterface, RequestHandlerInterface): ResponseInterface $callback
-     */
+    /** @param Closure(ServerRequestInterface, RequestHandlerInterface): ResponseInterface $callback */
     public function __construct(Closure $callback)
     {
         $this->callback = $callback;

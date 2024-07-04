@@ -19,9 +19,7 @@ class TestClosureHandler implements RequestHandlerInterface
      */
     public $received_request;
 
-    /**
-     * @param Closure(ServerRequestInterface): ResponseInterface $callback
-     */
+    /** @param Closure(ServerRequestInterface): ResponseInterface $callback */
     public function __construct(Closure $callback)
     {
         $this->callback = $callback;

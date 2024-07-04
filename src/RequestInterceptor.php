@@ -12,17 +12,13 @@ class RequestInterceptor
 {
     private $interceptors;
 
-    /**
-     * @param array<MiddlewareInterface> $interceptors
-     */
+    /** @param array<MiddlewareInterface> $interceptors */
     public function __construct(array $interceptors)
     {
         $this->interceptors = $interceptors;
     }
 
-    /**
-     * @return array{ServerRequestInterface, ?ResponseInterface}
-     */
+    /** @return array{ServerRequestInterface, ?ResponseInterface} */
     public function interceptRequest(ServerRequestInterface $request): array
     {
         $handler = new InterceptChecker();

@@ -12,9 +12,7 @@ class TestResponseHandler implements RequestHandlerInterface
 {
     private $response;
 
-    /**
-     * @var ServerRequestInterface
-     */
+    /** @var ServerRequestInterface */
     public $received_request;
 
     public function __construct(ResponseInterface $response)
