@@ -3,7 +3,7 @@
     "description": "A lightweight PSR-15 middleware dispatcher",
     "license": "Apache-2.0",
     "require": {
-        "php": ">=7.3",
+        "php": "^8.2",
         "hakone/untouchable-psr7": "^0.2.0",
         "psr/http-server-middleware": "^1.0"
     },
