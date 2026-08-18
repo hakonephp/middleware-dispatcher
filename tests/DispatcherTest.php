@@ -54,7 +54,7 @@ class DispatcherTest extends TestCase
         $request = $factory->createServerRequest('GET', '/dummy');
         $actual = $subject->handle($request);
 
-        $this->assertSame($expected['response'], [
+        self::assertSame($expected['response'], [
             'status' => $actual->getStatusCode(),
             'headers' => $actual->getHeaders(),
             'body' => (string)$actual->getBody(),
@@ -62,7 +62,7 @@ class DispatcherTest extends TestCase
 
         $received_request = $handlers['handler']->received_request;
 
-        $this->assertSame($expected['request'], [
+        self::assertSame($expected['request'], [
             'method' => $received_request->getMethod(),
             'request_uri' => (string)$received_request->getUri(),
             'headers' => $received_request->getHeaders(),

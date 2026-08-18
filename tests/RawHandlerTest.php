@@ -18,6 +18,6 @@ class RawHandlerTest extends TestCase
         $subject = new ResponseHandler($response);
         $request = $factory->createServerRequest('GET', '/dummy');
 
-        $this->assertSame($response, $subject->handle($request));
+        self::assertSame($response, $subject->handle($request));
     }
 }

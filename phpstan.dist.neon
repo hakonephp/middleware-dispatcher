@@ -6,6 +6,7 @@ parameters:
 	inferPrivatePropertyTypeFromConstructor: true
 	bootstrapFiles:
 		- vendor-bin/tools/vendor/symplify/easy-coding-standard/vendor/autoload.php
+		- vendor-bin/phpunit/vendor/autoload.php
 	paths:
 		- src/
 		- tests/
