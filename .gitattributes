@@ -3,3 +3,4 @@
 /phpstan.dist.neon export-ignore
 /phpunit.xml export-ignore
 /tests/* export-ignore
+/vendor-bin export-ignore

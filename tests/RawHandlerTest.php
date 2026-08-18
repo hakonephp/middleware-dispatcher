@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Hakone;
 
 use Nyholm\Psr7\Factory\Psr17Factory;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
+#[CoversClass(ResponseHandler::class)]
 class RawHandlerTest extends TestCase
 {
-    /** @covers RawHandler */
     public function test(): void
     {
         $factory = new Psr17Factory();

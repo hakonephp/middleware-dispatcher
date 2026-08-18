@@ -6,6 +6,8 @@ namespace Hakone;
 
 use Hakone\Helper\TestResponseHandler;
 use Nyholm\Psr7\Factory\Psr17Factory;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
@@ -31,14 +33,14 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
  *     body: string
  * }
  */
+#[CoversClass(Dispatcher::class)]
 class DispatcherTest extends TestCase
 {
     /**
-     * @dataProvider paremetersProvider
-     * @covers Dispatcher
      * @param relay_handlers $handlers
      * @param array{request: expected_request, response: expected_response} $expected
      */
+    #[DataProvider('paremetersProvider')]
     public function test(array $handlers, array $expected): void
     {
         $factory = new Psr17Factory();
@@ -69,7 +71,7 @@ class DispatcherTest extends TestCase
     }
 
     /** @return iterable<array{handlers: relay_handlers, expected: array{request: expected_request, response: expected_response}}> */
-    public function paremetersProvider()
+    public static function paremetersProvider()
     {
         $factory = new Psr17Factory();
         $response = $factory->createResponse();
