@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class ResponseHandler implements RequestHandlerInterface
+readonly class ResponseHandler implements RequestHandlerInterface
 {
     public function __construct(
         private ResponseInterface $response

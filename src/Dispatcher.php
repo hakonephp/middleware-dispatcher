@@ -9,7 +9,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class Dispatcher implements RequestHandlerInterface
+readonly class Dispatcher implements RequestHandlerInterface
 {
     /**
      * @param array<MiddlewareInterface> $middlewares
