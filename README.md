@@ -1,6 +1,18 @@
 # Hakone PSR-15 middleware dispatcher 🏃‍♀️
 
+[![Package version](https://img.shields.io/packagist/v/hakone/middleware-dispatcher.svg?style=flat)](https://packagist.org/packages/hakone/middleware-dispatcher)
+[![Build Status](https://github.com/hakonephp/middleware-dispatcher/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/hakonephp/middleware-dispatcher/actions)
+[![Downloads this Month](https://img.shields.io/packagist/dm/hakone/middleware-dispatcher.svg)](https://packagist.org/packages/hakone/middleware-dispatcher)
+
 **Hakone** is a lightweight [PSR-15] middleware dispatcher implementation. It is inspired by [Relay].
+
+It splits the pipeline into request interceptors, general-purpose middleware, and response decorators.
+
+## Install
+
+```
+composer require hakone/middleware-dispatcher
+```
 
 ## Concept
 
@@ -10,7 +22,7 @@ Hakone is a "queue-based request handler" described in [PSR-15 Meta Document]. T
 
 We've written a number of small-duty middlewares, but for many use cases they only do work on either the request or the response. We decided to classify the types of middleware into three types: **"request interceptor"**, **"general-purpose middleware"** and **"response decorator"**.
 
-## How to use
+## Usage
 
 ```php
 $dispatcher = Hakone\relay([
