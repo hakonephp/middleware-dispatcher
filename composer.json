@@ -4,7 +4,7 @@
     "license": "Apache-2.0",
     "require": {
         "php": "^8.2",
-        "hakone/untouchable-psr7": "^0.2.0",
+        "hakone/untouchable-psr7": "^1.1",
         "psr/http-server-middleware": "^1.0"
     },
     "require-dev": {
