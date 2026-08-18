@@ -24,7 +24,7 @@ class RequestInterceptor
         $handler = new InterceptChecker();
         foreach ($this->interceptors as $interceptor) {
             $response = $interceptor->process($request, $handler);
-            if (! $response instanceof NotIntercepted) {
+            if (!$response instanceof NotIntercepted) {
                 return [$request, $response];
             }
 

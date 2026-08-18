@@ -57,16 +57,16 @@ class DispatcherTest extends TestCase
         $this->assertSame($expected['response'], [
             'status' => $actual->getStatusCode(),
             'headers' => $actual->getHeaders(),
-            'body' => (string) $actual->getBody(),
+            'body' => (string)$actual->getBody(),
         ]);
 
         $received_request = $handlers['handler']->received_request;
 
         $this->assertSame($expected['request'], [
             'method' => $received_request->getMethod(),
-            'request_uri' => (string) $received_request->getUri(),
+            'request_uri' => (string)$received_request->getUri(),
             'headers' => $received_request->getHeaders(),
-            'body' => (string) $received_request->getBody(),
+            'body' => (string)$received_request->getBody(),
         ]);
     }
 
@@ -84,7 +84,8 @@ class DispatcherTest extends TestCase
 
         $append_response_header = middleware(
             function (ServerRequest $request, RequestHandler $handler): Response {
-                return $handler->handle($request)->withHeader('Bar', 'Response');
+                return $handler->handle($request)
+                    ->withHeader('Bar', 'Response');
             }
         );
 
