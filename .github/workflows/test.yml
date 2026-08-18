@@ -11,7 +11,6 @@ on:
 jobs:
   phpunit:
     name: PHPUnit PHP ${{ matrix.php }} (${{ matrix.dependencies }})
-    if: hashFiles('phpunit.xml', 'phpunit.xml.dist') != ''
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
