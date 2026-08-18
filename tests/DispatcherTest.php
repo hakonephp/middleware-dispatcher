@@ -8,6 +8,7 @@ use Hakone\Helper\TestResponseHandler;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as ServerRequest;
@@ -34,6 +35,11 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
  * }
  */
 #[CoversClass(Dispatcher::class)]
+#[UsesClass(InterceptChecker::class)]
+#[UsesClass(NotIntercepted::class)]
+#[UsesClass(RequestInterceptor::class)]
+#[UsesClass(ResponseHandler::class)]
+#[UsesClass(Runner::class)]
 class DispatcherTest extends TestCase
 {
     /**
