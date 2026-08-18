@@ -5,7 +5,7 @@ parameters:
 	reportUnmatchedIgnoredErrors: false
 	inferPrivatePropertyTypeFromConstructor: true
 	bootstrapFiles:
-		- vendor/symplify/easy-coding-standard/vendor/autoload.php
+		- vendor-bin/tools/vendor/symplify/easy-coding-standard/vendor/autoload.php
 	paths:
 		- src/
 		- tests/
