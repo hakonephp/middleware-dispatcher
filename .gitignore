@@ -3,3 +3,5 @@
 /vendor/*
 /vendor-bin/**/composer.lock
 /vendor-bin/**/vendor/*
+/infection.html
+/infection.log

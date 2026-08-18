@@ -1,5 +1,6 @@
 /.editorconfig export-ignore
 /ecs.php export-ignore
+/infection.json.dist export-ignore
 /phpstan.dist.neon export-ignore
 /phpunit.xml export-ignore
 /tests/* export-ignore
