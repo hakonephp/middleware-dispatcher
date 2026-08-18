@@ -11,24 +11,16 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class Dispatcher implements RequestHandlerInterface
 {
-    private $interceptor;
-
-    private $middlewares;
-
-    private $handler;
-
-    private $decorators;
-
     /**
      * @param array<MiddlewareInterface> $middlewares
      * @param array<MiddlewareInterface> $decorators
      */
-    public function __construct(RequestInterceptor $interceptor, array $middlewares, RequestHandlerInterface $handler, array $decorators)
-    {
-        $this->interceptor = $interceptor;
-        $this->middlewares = $middlewares;
-        $this->handler = $handler;
-        $this->decorators = $decorators;
+    public function __construct(
+        private RequestInterceptor $interceptor,
+        private array $middlewares,
+        private RequestHandlerInterface $handler,
+        private array $decorators
+    ) {
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface

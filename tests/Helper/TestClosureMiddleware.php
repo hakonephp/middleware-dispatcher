@@ -12,8 +12,6 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class TestClosureMiddleware implements MiddlewareInterface
 {
-    private $callback;
-
     /**
      * @phpstan-readonly-allow-private-mutation
      * @var ServerRequestInterface
@@ -21,9 +19,9 @@ class TestClosureMiddleware implements MiddlewareInterface
     public $received_request;
 
     /** @param Closure(ServerRequestInterface, RequestHandlerInterface): ResponseInterface $callback */
-    public function __construct(Closure $callback)
-    {
-        $this->callback = $callback;
+    public function __construct(
+        private Closure $callback
+    ) {
     }
 
     public function process(

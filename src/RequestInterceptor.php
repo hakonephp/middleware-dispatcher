@@ -10,12 +10,10 @@ use Psr\Http\Server\MiddlewareInterface;
 
 class RequestInterceptor
 {
-    private $interceptors;
-
     /** @param array<MiddlewareInterface> $interceptors */
-    public function __construct(array $interceptors)
-    {
-        $this->interceptors = $interceptors;
+    public function __construct(
+        private array $interceptors
+    ) {
     }
 
     /** @return array{ServerRequestInterface, ?ResponseInterface} */

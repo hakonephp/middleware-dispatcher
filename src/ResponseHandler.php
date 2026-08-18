@@ -10,11 +10,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class ResponseHandler implements RequestHandlerInterface
 {
-    private $response;
-
-    public function __construct(ResponseInterface $response)
-    {
-        $this->response = $response;
+    public function __construct(
+        private ResponseInterface $response
+    ) {
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface

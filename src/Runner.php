@@ -14,17 +14,16 @@ use function reset;
 
 class Runner implements RequestHandlerInterface
 {
-    private $handler;
-
     private $middlewares;
 
     /** @var ServerRequestInterface */
     private $request;
 
     /** @param array<MiddlewareInterface> $middlewares */
-    public function __construct(RequestHandlerInterface $handler, array $middlewares)
-    {
-        $this->handler = $handler;
+    public function __construct(
+        private RequestHandlerInterface $handler,
+        array $middlewares
+    ) {
         reset($middlewares);
         $this->middlewares = $middlewares;
     }
