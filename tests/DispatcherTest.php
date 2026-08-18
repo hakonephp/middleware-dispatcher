@@ -76,6 +76,33 @@ class DispatcherTest extends TestCase
         ]);
     }
 
+    public function test_decorateResponse_is_public(): void
+    {
+        $factory = new Psr17Factory();
+        $response = $factory->createResponse();
+        $request = $factory->createServerRequest('GET', '/dummy');
+        $subject = new Dispatcher(
+            new RequestInterceptor([]),
+            [],
+            new TestResponseHandler($response),
+            [
+                middleware(
+                    function (ServerRequest $request, RequestHandler $handler): Response {
+                        return $handler->handle($request)
+                            ->withHeader('Bar', 'Response');
+                    }
+                ),
+            ]
+        );
+
+        $actual = $subject->decorateResponse($response, $request);
+
+        self::assertSame(200, $actual->getStatusCode());
+        self::assertSame([
+            'Bar' => ['Response'],
+        ], $actual->getHeaders());
+    }
+
     /** @return iterable<array{handlers: relay_handlers, expected: array{request: expected_request, response: expected_response}}> */
     public static function paremetersProvider()
     {
